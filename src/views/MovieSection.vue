@@ -4,15 +4,15 @@
     <BoxLink/> <!-- BOX -->
     <main class="Main">
       <div class="alert alert-primary" role="alert">
-        Últimas series
+        Últimas peliculas
       </div>
       <div v-if="isLoading">
         <!--<img class="loading" src="../assets/loading.gif" alt="loading">-->
       </div>
       <div v-else>
         <ul else class="ListEpisodios AX Rows A06 C04 D02">
-          <li v-for="(serie, index) in series" :key="index">
-            <Series :series="serie"/>
+          <li v-for="(movie, index) in movies" :key="index">
+            <Movies :movies="movie"/>
           </li>
         </ul>
       </div>
@@ -25,24 +25,24 @@
 <script>
   import { value , onCreated , watch } from "vue-function-api";
   import { useState, useStore } from "@u3u/vue-hooks";
-  import Series from "../components/Series";
+  import Movies from "../components/Movies";
   import BoxLink from '../components/BoxLink';
 
   export default {
-    name: 'home',
+    name: 'MovieSection',
     components:{
-      Series,
+      Movies,
       BoxLink
     },
     setup(){
       const store = useStore();
 
       const state = {
-        ...useState(["series" , "isLoading"])
+        ...useState(["movies" , "isLoading"])
       };
 
       const page = value(1);
-      const total_pages = value(15);
+      const total_pages = value(105);
 
       watch(() =>
         page.value , (value) =>{
@@ -53,11 +53,11 @@
       )
 
       const init = (page) => {
-        store.value.dispatch("GET_SERIES" , page.value);
+        store.value.dispatch("GET_MOVIES" , page.value);
       }
 
       onCreated(() =>{
-        store.value.dispatch("GET_SERIES" , page.value);
+        store.value.dispatch("GET_MOVIES" , page.value);
       });
 
       return{

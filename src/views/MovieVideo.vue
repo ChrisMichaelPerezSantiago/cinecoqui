@@ -1,0 +1,115 @@
+<template>
+  <div id="container" style="margin-top: -10px; padding-top: 0;">
+    <span class="pbox"></span>
+    <div id="reproductor-box">
+      <div class="video-header">
+        <h1></h1>
+        <form class="video-section">
+          <select class="container" v-model="option">
+            <option disabled value="">Videos</option>
+            <option v-for="(video , index) in movie_video.map(xs => xs.iframe)"
+              :value="video"
+              :key="index"
+            >
+              {{ video }}
+            </option>
+          </select>
+        </form>              
+      </div>
+       <div class="embed-responsive embed-responsive-21by9">
+          <iframe 
+            ref="video" 
+            style="background-color:black;" 
+            class="embed-responsive-item" 
+            id="_video"
+            :src="option.video_iframe"
+            frameborder="0"
+            allowfullscreen
+          >
+          </iframe>
+      </div>
+    </div>   
+
+     <div class="jumbotron jumbotron-fluid" style="background:#144463 !important">
+      <div class="container">
+        <h1 class="display-4">
+          {{title}}
+          <br>
+          <span style="font-size:27px" class="badge badge-secondary">
+            <span class="badge badge-warning">Año</span>
+            {{year}}
+          </span>
+          <span style="font-size:27px" class="badge badge-secondary">
+            <span class="badge badge-warning">Calidad</span>
+            {{quality}}
+          </span>
+          <span style="font-size:27px" class="badge badge-secondary">
+            <span class="badge badge-warning">Lanzamiento</span>
+            {{air_date}}
+          </span>
+
+        </h1> 
+          <p class="lead">{{sinopsis}}</p>
+        <hr/>
+         <span style="font-size:18px" class="badge badge-secondary">
+          <span class="badge badge-warning">Creator</span>
+          {{creator_member.creator.name}}
+          <img :src="creator_member.creator.poster">
+        </span>
+        <hr/>  
+      </div>
+    </div>
+    
+  </div>
+</template>
+
+<script>
+import { value, watch , onCreated } from "vue-function-api";
+import { useState, useStore, useRouter } from "@u3u/vue-hooks";
+
+export default {
+  name: "MovieVideo",
+  setup() {
+    const store = useStore();
+    const { route } = useRouter();
+
+    const state = {
+      ...useState(["movie_video", "isLoading"])
+    };
+    
+
+    const params = {
+      id: value(route.value.params.id),
+      title: value(route.value.params.title),
+      year: value(route.value.params.year),
+      quality: value(route.value.params.quality),
+      sinopsis: value(route.value.params.sinopsis),
+      extra: value(route.value.params.extra)
+    };
+
+    const values = {
+      id: params.id.value,
+      title: params.title.value,
+      year: params.year.value,
+      quality: params.quality.value,
+      sinopsis: params.sinopsis.value,
+      creator_member: params.extra.value[0].cast_members,
+      air_date: params.extra.value[0].air_date
+    };
+
+    const option = value("");
+
+
+    onCreated(() =>{
+      store.value.dispatch("GET_VIDEO_MOVIES" , values.id);
+    });
+
+
+    return {
+      ...state,
+      ...values,
+      option
+    };
+  }
+};
+</script>

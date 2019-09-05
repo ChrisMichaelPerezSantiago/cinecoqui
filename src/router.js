@@ -1,6 +1,15 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
+import SerieVideo from './views/SerieVideo';
+import Genres from "./views/Genres.vue";
+import EpisodesSection from './views/EpisodesSection';
+import EpisodeVideo from './views/EpisodeVideo';
+import MovieSection from './views/MovieSection';
+import MovieVideo from './views/MovieVideo';
+import ContentSearched from './views/ContentSearched';
+import ByGenre from './views/ByGenre';
+import NotFound from './views/NotFound';
 
 Vue.use(Router);
 
@@ -14,12 +23,49 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      path: '/SerieVideo/:id',
+      name: 'SerieVideo',
+      component: SerieVideo,
     },
+    {
+      path: "/Genres",
+      name: "Genres",
+      component: Genres
+    },
+    {
+      path: "/EpisodesSection",
+      name: "EpisodesSection",
+      component: EpisodesSection
+    },
+    {
+      path: "/EpisodeVideo/:id",
+      name: "EpisodeVideo",
+      component: EpisodeVideo
+    },
+    {
+      path: "/MovieSection",
+      name: "MovieSection",
+      component: MovieSection
+    },
+    {
+      path: "/MovieVideo/:id",
+      name: "MovieVideo",
+      component: MovieVideo
+    },
+    {
+      path: "/search",
+      name: "ContentSearched",
+      component: ContentSearched
+    },
+    {
+      path: "/Genre/:genres",
+      name: "ByGenre",
+      component: ByGenre
+    },
+    {
+      path: "*",
+      name: "NotFound",
+      component: NotFound
+    }
   ],
 });
