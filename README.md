@@ -1,4 +1,19 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<p>
+ <p>
+  <a href="https://github.com/ChrisMichaelPerezSantiago/cinecoqui#readme">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
+  </a>
+  <a href="https://github.com/ChrisMichaelPerezSantiago/cinecoqui/graphs/commit-activity">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" target="_blank" />
+  </a>
+  <a href="https://github.com/ChrisMichaelPerezSantiago/cinecoqui/blob/master/LICENSE">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" target="_blank" />
+  </a>
+  <a href="https://twitter.com/Chris5855M">
+    <img alt="Twitter: Chris5855M" src="https://img.shields.io/twitter/follow/Chris5855M.svg?style=social" target="_blank" />
+  </a>
+</p>
 
 <h1 align="center">Welcome to CineCoqui 👋</h1>
 
