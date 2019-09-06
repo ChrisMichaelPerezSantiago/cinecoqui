@@ -4,7 +4,10 @@
       <a :style="{ 'background-image': 'url(' + episode.poster + ')' }" :title="episode.title" class="fas fa-play">
         <span class="Image"><img :src="episode.poster" :alt="episode.episode_name"></span>
         <strong class="Title">{{episode.title}}</strong>
-        <span class="Capi">{{episode.episode_name}}</span>
+        <span class="Capi">
+          {{episode.episode_name}}<br>
+          <span>{{episode.date}}</span>
+        </span>
       </a>
     </router-link>
   </div>  
