@@ -130,7 +130,7 @@
         episode_selected.value , (value) =>{
           episode_selected.value = value;
           const eps = episode_selected.value;
-          const id = `${params.id.value}-${eps}`;
+          const id = `${params.id.value.replace('ver-' , '')}-${eps}`
           store.value.dispatch("GET_VIDEO_SERIES" , id)
         }
       );
