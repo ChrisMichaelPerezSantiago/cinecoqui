@@ -4,7 +4,7 @@
       <a :style="{ 'background-image': 'url(' + movie.poster + ')' }" :title="movie.title" class="fas fa-play">
         <span class="Image"><img :src="movie.poster" :alt="movie.title"></span>
         <strong class="Title">{{movie.title}}</strong>
-        <span class="Capi">{{movie.year}}</span>
+        <span class="Capi">{{movie.year}} <i class="fas fa-star"><span>{{movie.rating}}</span></i> </span>
       </a>
     </router-link>
   </div>  
