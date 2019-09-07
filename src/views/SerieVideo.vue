@@ -79,24 +79,20 @@
 <script>
   import {value , watch} from 'vue-function-api';
   import {useState , useStore , useRouter} from '@u3u/vue-hooks';
-
   export default{
     name: 'SerieVideo',
     setup(){
       const store = useStore();
       const {route} = useRouter();
-
       const state = {
         ...useState(['serie_video' , 'isLoading'])
       };
-
       const params = {
         id: value(route.value.params.id),
         title: value(route.value.params.title),
         sinopsis: value(route.value.params.sinopsis),
         extra: value(route.value.params.extra)
       };
-
       const values = {
         title: params.title.value,
         sinopsis: params.sinopsis.value,
@@ -105,17 +101,15 @@
         last_air_date: params.extra.value[0].last_air_date.replace('Última transmisión' , ''),
         creator_member: params.extra.value[0].cast_members,
         members_list: params.extra.value[0].cast_members,
-        total_seasons: params.extra.value[0].total_seasons,
+        total_seasons: params.extra.value[0].season_list.length,
         season_list: params.extra.value[0].season_list
       };
-
       const season_selected = value(null);
       const episode_selected = value(null);
       const season_list = values.season_list;
       const episodesList = value([])
       const id = value(null)
       const option = value("");
-
       
       watch(() =>
         season_selected.value , (value) =>{
@@ -124,8 +118,6 @@
           episodesList.value.push(season_list[selected - 1].episodes); // list of episodes          
         }
       );
-
-
       watch(() =>
         episode_selected.value , (value) =>{
           episode_selected.value = value;
@@ -134,7 +126,6 @@
           store.value.dispatch("GET_VIDEO_SERIES" , id)
         }
       );
-
       return{
         ...state,
         ...values,
