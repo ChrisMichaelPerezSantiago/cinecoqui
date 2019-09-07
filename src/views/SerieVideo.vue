@@ -14,7 +14,7 @@
           </select>
           <select class="container" v-model="episode_selected">
             <option disabled value="">Episodios</option>
-            <option v-for="(season , index) in episodesList[season_selected - 1]" :value="season" :key="index">
+            <option v-for="(season , index) in season_list[season_selected - 1].episodes" :value="season" :key="index">
               {{ season }}
            </option>
           </select>
@@ -104,7 +104,7 @@
         total_seasons: params.extra.value[0].season_list.length,
         season_list: params.extra.value[0].season_list
       };
-      const season_selected = value(null);
+      const season_selected = value(1);
       const episode_selected = value(null);
       const season_list = values.season_list;
       const episodesList = value([])
@@ -112,12 +112,13 @@
       const option = value("");
       
       watch(() =>
-        season_selected.value , (value) =>{
+        season_selected.value , (value , old) =>{
           season_selected.value = value
           const selected = season_selected.value;  // season selected
-          episodesList.value.push(season_list[selected - 1].episodes); // list of episodes          
+          season_list[selected - 1].episodes // list of episodes                                    
         }
       );
+
       watch(() =>
         episode_selected.value , (value) =>{
           episode_selected.value = value;
@@ -126,6 +127,7 @@
           store.value.dispatch("GET_VIDEO_SERIES" , id)
         }
       );
+      
       return{
         ...state,
         ...values,
