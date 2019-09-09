@@ -14,7 +14,7 @@
           </select>
           <select class="container" v-model="episode_selected">
             <option disabled value="">Episodios</option>
-            <option v-for="(season , index) in season_list[season_selected - 1].episodes" :value="season" :key="index">
+            <option v-for="(season , index) in bySeason[season_selected].episodes" :value="season" :key="index">
               {{ season }}
            </option>
           </select>
@@ -79,20 +79,24 @@
 <script>
   import {value , watch} from 'vue-function-api';
   import {useState , useStore , useRouter} from '@u3u/vue-hooks';
+
   export default{
     name: 'SerieVideo',
-    setup(){
+    setup(props , context){
       const store = useStore();
       const {route} = useRouter();
+
       const state = {
         ...useState(['serie_video' , 'isLoading'])
       };
+
       const params = {
         id: value(route.value.params.id),
         title: value(route.value.params.title),
         sinopsis: value(route.value.params.sinopsis),
         extra: value(route.value.params.extra)
       };
+
       const values = {
         title: params.title.value,
         sinopsis: params.sinopsis.value,
@@ -104,6 +108,7 @@
         total_seasons: params.extra.value[0].season_list.length,
         season_list: params.extra.value[0].season_list
       };
+      
       const season_selected = value(1);
       const episode_selected = value(null);
       const season_list = values.season_list;
@@ -111,13 +116,11 @@
       const id = value(null)
       const option = value("");
       
-      watch(() =>
-        season_selected.value , (value , old) =>{
-          season_selected.value = value
-          const selected = season_selected.value;  // season selected
-          season_list[selected - 1].episodes // list of episodes                                    
-        }
-      );
+
+      const bySeason = season_list.reduce((byId , seasons) =>{
+        byId[seasons.season] = seasons
+        return byId
+      } , {});
 
       watch(() =>
         episode_selected.value , (value) =>{
@@ -134,7 +137,7 @@
         option,
         season_selected,
         episode_selected,
-        season_list,
+        bySeason,
         episodesList: episodesList.value
       }
     }
