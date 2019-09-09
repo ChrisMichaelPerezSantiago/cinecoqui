@@ -30,20 +30,20 @@
       </div>
     </div>   
 
-     <div class="jumbotron jumbotron-fluid" style="background:#144463 !important">
+     <div class="jumbotron jumbotron-fluid" style="background:#232728 !important">
       <div class="container">
         <h1 class="display-4">
           {{title}}
           <br>
-          <span style="font-size:27px" class="badge badge-secondary">
+          <span style="font-size:25px" class="badge badge-dark">
             <span class="badge badge-warning">Año</span>
             {{year}}
           </span>
-          <span style="font-size:27px" class="badge badge-secondary">
+          <span style="font-size:25px" class="badge badge-dark">
             <span class="badge badge-warning">Calidad</span>
             {{quality}}
           </span>
-          <span style="font-size:27px" class="badge badge-secondary">
+          <span style="font-size:25px" class="badge badge-dark">
             <span class="badge badge-warning">Lanzamiento</span>
             {{air_date}}
           </span>
@@ -51,11 +51,15 @@
         </h1> 
           <p class="lead">{{sinopsis}}</p>
         <hr/>
-         <span style="font-size:18px" class="badge badge-secondary">
-          <span class="badge badge-warning">Creator</span>
-          {{creator_member.creator.name}}
-          <img :src="creator_member.creator.poster">
-        </span>
+          <ul class="list-unstyled">
+          <li class="media gallery">
+            <img id="creatorImg" :src="creator_member.creator.poster" class="mr-3" :alt="creator_member.creator.name">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">{{creator_member.creator.name}}</h5>
+              Creator
+            </div>
+          </li>
+        </ul>
         <hr/>  
       </div>
     </div>

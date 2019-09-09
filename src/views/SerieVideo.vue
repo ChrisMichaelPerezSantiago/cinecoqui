@@ -38,19 +38,19 @@
       </div>
     </div>   
 
-     <div class="jumbotron jumbotron-fluid" style="background:#144463 !important">
+     <div class="jumbotron jumbotron-fluid" style="background:#232728 !important">
       <div class="container">
         <h1 class="display-4">
           {{title}}<br>
-          <span style="font-size:27px" class="badge badge-secondary">
+          <span style="font-size:26px" class="badge badge-dark">
             <span class="badge badge-warning">Servicio</span>
             {{channel}}
           </span>     
-          <span style="font-size:27px" class="badge badge-secondary">
+          <span style="font-size:26px" class="badge badge-dark">
             <span class="badge badge-warning">start</span>
             {{first_air_date}}
             </span>
-          <span style="font-size:27px" class="badge badge-secondary">
+          <span style="font-size:26px" class="badge badge-dark">
             <span class="badge badge-warning">end</span>
             {{last_air_date}}
           </span>
@@ -63,13 +63,26 @@
         <p class="lead">{{sinopsis}}</p>
         <hr/>
 
-        <span style="font-size:18px" class="badge badge-secondary">
-          <span class="badge badge-warning">Creator</span>
-          {{creator_member.creator.name}}
-          <img :src="creator_member.creator.poster">
-        </span>
+        <ul class="list-unstyled">
+          <li class="media gallery">
+            <img id="creatorImg" style="border-radius: 0.3em;" :src="creator_member.creator.poster" class="mr-3" :alt="creator_member.creator.name">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">{{creator_member.creator.name}}</h5>
+              Creator
+            </div>
+          </li>
+        </ul>
         <hr/>    
-        
+        <ul class="list-unstyled" v-for="(member, index) in members_list.members_list[0].members_info" :key="index">
+          <li class="media">
+            <img id="membersImg" :src="member.poster" class="mr-3" :alt="member.characters.real_name">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">{{member.characters.real_name}}</h5>
+              {{member.characters.character}}
+            </div>
+          </li>
+        </ul>
+
       </div>
     </div>
     
