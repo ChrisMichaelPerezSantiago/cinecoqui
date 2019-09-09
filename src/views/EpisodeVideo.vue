@@ -30,16 +30,16 @@
       </div>
     </div>   
 
-     <div class="jumbotron jumbotron-fluid" style="background:#144463 !important">
+     <div class="jumbotron jumbotron-fluid" style="background:#232728 !important">
       <div class="container">
         <h1 class="display-4">
           {{title}}
           <br>
-          <span style="font-size:27px" class="badge badge-secondary">
+          <span style="font-size:27px" class="badge badge-dark">
             <span class="badge badge-warning">Episodio</span>
             {{episode_name}}
           </span>
-          <span style="font-size:27px" class="badge badge-secondary">
+          <span style="font-size:27px" class="badge badge-dark">
             <span class="badge badge-warning">Calidad</span>
             {{quality}}
           </span>
