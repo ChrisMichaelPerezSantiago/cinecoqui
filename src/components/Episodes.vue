@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link :to="{name: 'EpisodeVideo' , params:{id: episode.id , title: episode.title , episode_name: episode.episode_name , poster: episode.poster , quality: episode.quality}}">
+    <router-link :to="{name: 'EpisodeVideo' , params:{id: episode.id , title: episode.title , episode_name: episode.episode_name , poster: episode.poster , quality: episode.quality , sinopsis: episode.sinopsis}}">
       <a :style="{ 'background-image': 'url(' + episode.poster + ')' }" :title="episode.title" class="fas fa-play">
         <span class="Image"><img :src="episode.poster" :alt="episode.episode_name"></span>
         <strong class="Title">{{episode.title}}</strong>
