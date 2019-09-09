@@ -43,8 +43,8 @@
             <span class="badge badge-warning">Calidad</span>
             {{quality}}
           </span>
-
         </h1> 
+          <p class="lead">{{sinopsis}}</p>
         <hr/>
       </div>
     </div>
@@ -72,7 +72,8 @@ export default {
       title: value(route.value.params.title),
       episode_name: value(route.value.params.episode_name),
       episode_poster: value(route.value.params.poster),
-      quality: value(route.value.params.quality)
+      quality: value(route.value.params.quality),
+      sinopsis: value(route.value.params.sinopsis)
     };
 
     const values = {
@@ -80,7 +81,8 @@ export default {
       title: params.title.value,
       episode_name: params.episode_name.value,
       episode_poster: params.episode_poster.value,
-      quality: params.quality.value
+      quality: params.quality.value,
+      sinopsis: params.sinopsis.value
     };
 
     const option = value("");
