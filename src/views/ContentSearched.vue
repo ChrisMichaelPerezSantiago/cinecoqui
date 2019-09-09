@@ -52,6 +52,7 @@
       onCreated(() =>{
         store.value.dispatch('GET_CONTENT_SEARCH' , query.value);
       });
+      
       return{
         ...state,
         query,
