@@ -45,9 +45,8 @@ export default {
     const page = value(1);
     const total_pages = value(188);
 
-    watch(
-      () => page.value,
-      value => {
+    watch(() => 
+      page.value , (value) => {
         page.value = value;
         const goto = page;
         init(goto);
