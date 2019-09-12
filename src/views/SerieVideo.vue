@@ -82,6 +82,7 @@
             </div>
           </li>
         </ul>
+        <hr/>
 
       </div>
     </div>
@@ -119,17 +120,18 @@
         creator_member: params.extra.value[0].cast_members,
         members_list: params.extra.value[0].cast_members,
         total_seasons: params.extra.value[0].season_list.length,
-        season_list: params.extra.value[0].season_list
+        season_list: params.extra.value[0].season_list,
+        //similar_series: params.extra.value[0].similar_series
       };
       
-      const season_selected = value(1);
-      const episode_selected = value(null);
+      const season_selected = value("1");
+      const episode_selected = value("");
       const season_list = values.season_list;
-      const episodesList = value([])
+      const episodesList = value([]);
+      const similar_series = values.similar_series
       const id = value(null)
       const option = value("");
       
-
       const bySeason = season_list.reduce((byId , seasons) =>{
         byId[seasons.season] = seasons
         return byId
@@ -151,7 +153,8 @@
         season_selected,
         episode_selected,
         bySeason,
-        episodesList: episodesList.value
+        episodesList: episodesList.value,
+        //similar_series
       }
     }
   }
