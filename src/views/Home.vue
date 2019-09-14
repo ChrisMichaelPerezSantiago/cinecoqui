@@ -44,7 +44,7 @@
       };
 
       const page = value(1);
-      const total_pages = value(15);
+      const total_pages = value(16);
 
       watch(() =>
         page.value , (value) =>{
