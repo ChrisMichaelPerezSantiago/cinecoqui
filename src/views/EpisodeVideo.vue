@@ -11,7 +11,7 @@
               :value="video"
               :key="index"
             >
-              {{ video }}
+              {{ video.video_iframe }}
             </option>
           </select>
         </form>              

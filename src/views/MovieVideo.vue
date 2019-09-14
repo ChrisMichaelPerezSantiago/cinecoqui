@@ -11,7 +11,7 @@
               :value="video"
               :key="index"
             >
-              {{ video }}
+              {{ video.video_iframe }}
             </option>
           </select>
         </form>              
@@ -36,22 +36,21 @@
           {{title}}
           <br>
           <span style="font-size:25px" class="badge badge-dark">
-            <span class="badge badge-warning">Año</span>
-            {{year}}
+            <span class="badge badge-warning">Duración</span>
+            {{runtime}}
           </span>
           <span style="font-size:25px" class="badge badge-dark">
-            <span class="badge badge-warning">Calidad</span>
-            {{quality}}
+            <span class="badge badge-warning">País</span>
+            {{country}}
           </span>
           <span style="font-size:25px" class="badge badge-dark">
             <span class="badge badge-warning">Lanzamiento</span>
             {{air_date}}
           </span>
-
         </h1> 
-          <p class="lead">{{sinopsis}}</p>
+        <p class="lead">{{sinopsis}}</p>
         <hr/>
-          <ul class="list-unstyled">
+        <ul class="list-unstyled">
           <li class="media gallery">
             <img id="creatorImg" :src="creator_member.creator.poster" class="mr-3" :alt="creator_member.creator.name">
             <div class="media-body">
@@ -61,6 +60,16 @@
           </li>
         </ul>
         <hr/>  
+          <ul class="list-unstyled" v-for="(member, index) in members_list.members_list[0].members_info" :key="index">
+          <li class="media">
+            <img id="membersImg" :src="member.poster" class="mr-3" :alt="member.characters.real_name">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">{{member.characters.real_name}}</h5>
+              {{member.characters.character}}
+            </div>
+          </li>
+        </ul>
+        <hr/>
       </div>
     </div>
     
@@ -96,12 +105,17 @@ export default {
       title: params.title.value,
       year: params.year.value,
       quality: params.quality.value,
-      sinopsis: params.sinopsis.value,
+      sinopsis: params.sinopsis,
       creator_member: params.extra.value[0].cast_members,
-      air_date: params.extra.value[0].air_date
+      members_list: params.extra.value[0].cast_members,
+      air_date: params.extra.value[0].air_date,
+      runtime: params.extra.value[0].runtime,
+      country: params.extra.value[0].country
     };
 
     const option = value("");
+
+    console.log(values.sinopsis);
 
 
     onCreated(() =>{

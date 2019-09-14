@@ -21,7 +21,7 @@
           <select class="container" v-model="option">
             <option disabled value="">Videos</option>
             <option v-for="(video , index) in serie_video.map(xs => xs.iframe)" :value="video" :key="index">
-              {{ video }}
+              {{ video.video_iframe }}
             </option>
           </select>
         </form>              
