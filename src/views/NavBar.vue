@@ -42,7 +42,7 @@
       const {router} = useRouter();
       const query = value("");
 
-      let show = value(true);
+      let show = value(false);
       const toggleNavbar = () => show.value = !show.value;      
       
       const goto = () =>{
