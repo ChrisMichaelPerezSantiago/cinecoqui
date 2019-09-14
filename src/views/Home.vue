@@ -6,8 +6,10 @@
       <div class="alert alert-primary" role="alert">
         Últimas series
       </div>
-      <div v-if="isLoading">
-        <!--<img class="loading" src="../assets/loading.gif" alt="loading">-->
+      <div class="text-center" v-if="isLoading">
+        <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+          <span class="sr-only">Loading...</span> 
+        </div>
       </div>
       <div v-else>
         <ul else class="ListEpisodios AX Rows A06 C04 D02">
