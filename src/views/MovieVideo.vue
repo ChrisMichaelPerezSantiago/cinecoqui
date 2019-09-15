@@ -36,6 +36,10 @@
           {{title}}
           <br>
           <span style="font-size:25px" class="badge badge-dark">
+            <span class="badge badge-warning">Calidad</span>
+            {{quality}}
+          </span>
+          <span style="font-size:25px" class="badge badge-dark">
             <span class="badge badge-warning">Duración</span>
             {{runtime}}
           </span>
