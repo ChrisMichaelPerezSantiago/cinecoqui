@@ -22,6 +22,9 @@ export const mutations = {
   [types.SET_EPISODES](state , payload) {
     state.episodes = payload;
   },
+  [types.SET_LATESTS_EPISODES](state , payload) {
+    state.latestEpisodes = payload;
+  },
   [types.SET_VIDEO_SERIES](state , payload) {
     state.serie_video = payload;
   },

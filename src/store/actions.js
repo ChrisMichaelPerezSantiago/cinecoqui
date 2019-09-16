@@ -31,6 +31,19 @@ export const actions = {
         console.log(err);
     });
   }, 
+  GET_LASTESTS_EPISODES({commit}){
+    axios.get(`${URL.LATEST_EPISODE}`)
+      .then(doc =>{
+        console.log('res: ' , doc);
+        const episodes = doc.data.episodes;
+        commit(types.SET_LATESTS_EPISODES , episodes);
+        setTimeout(() =>{
+          commit(types.IS_LOADING , false);
+        } , 1000);
+      }).catch(err =>{
+        console.log(err);
+    });
+  }, 
   GET_VIDEO_SERIES({commit} , id){
     axios.get(`${URL.VIDEO_SERIES}/${id}`)
       .then(doc =>{

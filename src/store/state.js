@@ -5,6 +5,7 @@ export const state = {
   movie_video: [],
   genres: [],
   episodes: [],
+  latestEpisodes: [],
   contentSearched: [],
   isLoading: true,
 };

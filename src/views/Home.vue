@@ -34,13 +34,13 @@
     name: 'home',
     components:{
       Series,
-      BoxLink
+      BoxLink,
     },
     setup(){
       const store = useStore();
 
       const state = {
-        ...useState(["series" , "isLoading"])
+        ...useState(["series" , "latestEpisodes" , "isLoading"])
       };
 
       const page = value(1);
@@ -60,6 +60,7 @@
 
       onCreated(() =>{
         store.value.dispatch("GET_SERIES" , page.value);
+        store.value.dispatch("GET_LASTESTS_EPISODES");
       });
 
       return{
