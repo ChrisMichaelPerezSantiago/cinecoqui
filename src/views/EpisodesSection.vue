@@ -45,7 +45,7 @@ export default {
     };
 
     const page = value(1);
-    const total_pages = value(193);
+    const total_pages = value(195);
 
     watch(() => 
       page.value , (value) => {
