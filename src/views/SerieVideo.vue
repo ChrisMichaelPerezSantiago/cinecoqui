@@ -33,6 +33,8 @@
             class="embed-responsive-item" 
             id="_video" 
             :src="option.video_iframe"
+            frameborder="0"
+            allowfullscreen
             >
           </iframe>
       </div>
