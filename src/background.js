@@ -80,11 +80,6 @@ function createWindow () {
   })
 }
 
-const server = 'https://cinecoqui.chrismichael.now.sh'
-const feed = `${server}/update/${process.platform}/${app.getVersion()}`
-
-autoUpdater.setFeedURL(feed);
-
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
