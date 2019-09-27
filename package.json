@@ -2,9 +2,23 @@
   "name": "cinecoqui",
   "version": "1.1.0",
   "private": true,
+  "author": {
+    "name": "Chris Michael",
+    "email": "chrisperezsantiago1@gmail.com",
+    "url": "http://personal-porfolio.chrismichael.now.sh"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "gh-publish": "vue-cli-service electron:build -p always",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "ChrisMichaelPerezSantiago",
+        "repo": "cinecoqui",
+        "releaseType": "draft"
+      }
+    ],
     "lint": "vue-cli-service lint",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
@@ -16,6 +30,10 @@
     "postuninstall": "electron-builder install-app-deps",
     "prepare": "npm run snyk-protect",
     "snyk-protect": "snyk protect"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/ChrisMichaelPerezSantiago/cinecoqui"
   },
   "main": "background.js",
   "dependencies": {
