@@ -20,6 +20,12 @@
           <li class="nav-item">
             <router-link class="nav-link" :to="{name: 'MovieSection'}" ><i class="fas fa-film"></i> Peliculas</router-link>
           </li>
+          <li class="nav-item">
+            <router-link class="nav-link" :to="{name: 'BestRankedMovies'}" ><i class="fas fa-video"></i> Mejores Peliculas</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" :to="{name: 'BestRankedSeries'}" ><i class="fas fa-video"></i> Mejores Series</router-link>
+          </li>
         </ul>
         <div class="search-bar">
           <form class="form-inline my-2 my-lg-0">
