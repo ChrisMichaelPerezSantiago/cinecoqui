@@ -32,8 +32,8 @@
     "snyk-protect": "snyk protect"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/ChrisMichaelPerezSantiago/cinecoqui"
+    "type": "git",
+    "url": "https://github.com/ChrisMichaelPerezSantiago/cinecoqui"
   },
   "main": "background.js",
   "dependencies": {
