@@ -40,8 +40,7 @@ function createWindow () {
   //const feed = `${server}/update/${process.platform}/${app.getVersion()}`
   //autoUpdater.setFeedURL(feed);
 
-
-  setTimeout(() => {
+  setInterval(() => {
     autoUpdater.checkForUpdates()
   }, 60000);
 
