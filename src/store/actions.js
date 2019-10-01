@@ -99,7 +99,6 @@ export const actions = {
     axios.get(`${URL.GENRES}/${info.genre}/${info.page}`)
       .then(doc =>{
         const content = doc.data.content;
-        console.log('content ' , content);
         commit(types.SET_GENRES , content);
         setTimeout(() => {
           commit(types.IS_LOADING , false);
@@ -107,5 +106,29 @@ export const actions = {
       }).catch(err =>{
         console.log(err);
       });
-  }, 
+  },
+  GET_BEST_RANKED_MOVIES({commit}){
+    axios.get(`${URL.RANKED_MOVIES}`)
+      .then(doc =>{
+        const ranked_movies = doc.data.ranked_movies;
+        commit(types.SET_BEST_RANKED_MOVIES , ranked_movies);
+        setTimeout(() => {
+          commit(types.IS_LOADING , false);
+        } , 1000);
+      }).catch(err =>{
+        console.log(err);
+      });
+  },
+  GET_BEST_RANKED_SERIES({commit}){
+    axios.get(`${URL.RANKED_SERIES}`)
+      .then(doc =>{
+        const ranked_series = doc.data.ranked_series;
+        commit(types.SET_BEST_RANKED_SERIES , ranked_series);
+        setTimeout(() => {
+          commit(types.IS_LOADING , false);
+        } , 1000);
+      }).catch(err =>{
+        console.log(err);
+      });
+  },  
 };

@@ -7,5 +7,7 @@ export const state = {
   episodes: [],
   latestEpisodes: [],
   contentSearched: [],
+  best_movies: [],
+  best_series: [],
   isLoading: true,
 };

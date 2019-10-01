@@ -16,6 +16,12 @@ export const mutations = {
   [types.SET_MOVIES](state , payload) {
     state.movies = payload;
   },
+  [types.SET_BEST_RANKED_SERIES](state , payload) {
+    state.best_series = payload;
+  },
+  [types.SET_BEST_RANKED_MOVIES](state , payload) {
+    state.best_movies = payload;
+  },
   [types.SET_SEARCH](state , payload) {
     state.contentSearched = payload;
   },
