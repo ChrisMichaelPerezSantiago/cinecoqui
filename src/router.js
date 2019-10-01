@@ -10,6 +10,8 @@ import MovieVideo from './views/MovieVideo';
 import ContentSearched from './views/ContentSearched';
 import ByGenre from './views/ByGenre';
 import NotFound from './views/NotFound';
+import BestRankedMovies from './views/BestRankedMovies.vue';
+import BestRankedSeries from './views/BestRankedSeries.vue';
 
 Vue.use(Router);
 
@@ -61,6 +63,16 @@ export default new Router({
       path: "/Genre/:genres",
       name: "ByGenre",
       component: ByGenre
+    },
+    {
+      path: "/BestRankedMovies",
+      name: "BestRankedMovies",
+      component: BestRankedMovies
+    },
+    {
+      path: "/BestRankedSeries",
+      name: "BestRankedSeries",
+      component: BestRankedSeries
     },
     {
       path: "*",
