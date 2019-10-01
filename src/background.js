@@ -38,14 +38,16 @@ function createWindow () {
 
   //const server = 'https://cinecoqui.chrismichael.now.sh'
   //const feed = `${server}/update/${process.platform}/${app.getVersion()}`
-
   //autoUpdater.setFeedURL(feed);
 
-  setInterval(() => {
+
+  setTimeout(() => {
     autoUpdater.checkForUpdates()
   }, 60000);
 
   autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+    console.log('releaseNotes ' , releaseNotes);
+    console.log('releaseName ' , releaseName);
     const dialogOpts = {
       type: 'info',
       buttons: ['Restart', 'Later'],
