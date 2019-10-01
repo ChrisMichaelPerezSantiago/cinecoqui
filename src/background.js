@@ -36,10 +36,10 @@ function createWindow () {
 
   win.setMenu(null);
 
-  const server = 'https://cinecoqui.chrismichael.now.sh'
-  const feed = `${server}/update/${process.platform}/${app.getVersion()}`
+  //const server = 'https://cinecoqui.chrismichael.now.sh'
+  //const feed = `${server}/update/${process.platform}/${app.getVersion()}`
 
-  autoUpdater.setFeedURL(feed);
+  //autoUpdater.setFeedURL(feed);
 
   setInterval(() => {
     autoUpdater.checkForUpdates()
