@@ -1,6 +1,6 @@
 {
   "name": "cinecoqui",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "private": true,
   "author": {
     "name": "Chris Michael",
@@ -11,14 +11,6 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "gh-publish": "vue-cli-service electron:build -p always",
-    "publish": [
-      {
-        "provider": "github",
-        "owner": "ChrisMichaelPerezSantiago",
-        "repo": "cinecoqui",
-        "releaseType": "draft"
-      }
-    ],
     "lint": "vue-cli-service lint",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
