@@ -2,11 +2,13 @@
 
 const path = require('path');
 const url = require('url');
-import { app, protocol, BrowserWindow , autoUpdater } from 'electron'
+import { app, protocol, BrowserWindow } from 'electron'
 import {
   createProtocol,
   installVueDevtools
 } from 'vue-cli-plugin-electron-builder/lib'
+const { autoUpdater } = require("electron-updater")
+
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -40,9 +42,12 @@ function createWindow () {
   //const feed = `${server}/update/${process.platform}/${app.getVersion()}`
   //autoUpdater.setFeedURL(feed);
 
-  setInterval(() => {
+  autoUpdater.logger = require("electron-log")
+  autoUpdater.logger.transports.file.level = "info"
+  
+  setTimeout(() => {
     autoUpdater.checkForUpdates()
-  }, 60000);
+  }, 2000);
 
   autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     console.log('releaseNotes ' , releaseNotes);
